@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { User } from '../../models/User';
+import { User } from '../../models/User'; 
 
 @Component({
   selector: 'app-users',
@@ -11,12 +11,7 @@ export class UsersComponent implements OnInit {
   user: User = {
     firstName: '',
     lastName: '',
-    age: null,
-    address: {
-      street: '',
-      city: '',
-      state: ''
-    }
+    email: ''
   }
   users: User[];
   showExtended: boolean = true;
@@ -26,30 +21,21 @@ export class UsersComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+   
       this.users = [
         {
           firstName: 'John',
           lastName: 'Doe',
-          age: 30,
-          address: {
-              street: '50 Main St',
-              city: 'Boston',
-              state: 'MA'
-          },
+          email: 'john@gmail.com',
           isActive: true,
           registered: new Date('01/02/2018 08:30:00'),
           hide: true
         },
         {
-        firstName: 'Kevin',
-        lastName: 'Johnson',
-        age: 34,
-        address: {
-            street: '20 School St',
-            city: 'Lynn',
-            state: 'MA'
-          },
+          firstName: 'Kevin',
+          lastName: 'Johnson',
+          email: 'kevin@yahoo.com',
           isActive: false,
           registered: new Date('03/11/2017 06:20:00'),
           hide: true
@@ -57,52 +43,32 @@ export class UsersComponent implements OnInit {
         {
           firstName: 'Karen',
           lastName: 'Williams',
-          age: 26,
-          address: {
-              street: '55 Mill St',
-              city: 'Miami',
-              state: 'FL'
-          },
+          email: 'karen@gmaial.com',
           isActive: true,
           registered: new Date('11/02/2016 10:30:00'),
           hide: true
         }
-  
       ];
 
-    this.loaded = true;
-
+      this.loaded = true;
   }
 
-  addUser() {
-    this.user.isActive = true;
-    this.user.registered = new Date();
+  // addUser() {
+  //   this.user.isActive = true;
+  //   this.user.registered = new Date();
 
-    this.users.unshift(this.user);
+  //   this.users.unshift(this.user);
 
-    this.user = {
-      firstName: '',
-      lastName: '',
-      age: null,
-      address: {
-        street: '',
-        city: '',
-        state: ''
-      }
-    }
-  }
-
-  // toggleHide(user: User) {
-  //   user.hide = !user.hide;
+  //   this.user = {
+  //     firstName: '',
+  //     lastName: '',
+  //     email: ''
+  //   }
   // }
 
-  // onSubmit(e) {
-  //   console.log(123);
-  // } 
+  onSubmit() {
 
-  fireEvent(e) {
-    console.log(e.type);
-    console.log(e.target.value);
   }
 
+  
 }
